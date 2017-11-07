@@ -2,9 +2,12 @@
 
 This is a simple animation GUI in python aims to show the growth of the barabasi_albert scale free graph.
 
-Running : python BA.py
-
-needed libraries: pylab, networkx, matplotlib and Tkinter.
+## Running
+```sh
+# Installs networkx and matplotlib
+pip install -r requirements.txt
+python BA.py
+```
 
 Using the GUI, fill the text boxes as follows: 
 
