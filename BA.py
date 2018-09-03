@@ -104,6 +104,9 @@ def choose_neighbors(G, num_neighbors):
     # iterate nodes to calculate limits depending on degree
     for i in G:
         # Each node is assigned a range depending in the degree probability of BA so that with random number between 0 and 1 it i will be chosen
+	# The + 1 is added in the numerator to be compatible with the case when the graph is starting and there are nodes only with no edges.
+	# In this case all nodes should have equal probability (1/num_nodes), that's why the +1 is added in the numerator (to avoid a zero probability for all nodes since the degree is zero)
+	# and the + num_nodes is added in the denominator to accomodate for the added 1 in the numerator for each node.
         limits.append((G.degree(i)+1)/(2*num_edges + num_nodes) + limits[i])
     # After specifying limits select_neighbors function is called to generate random numbers and choose neighbors accordingly
     return select_neighbors(limits, num_neighbors)
